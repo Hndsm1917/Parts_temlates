@@ -30,7 +30,7 @@
        })
         
                
-        <----------- functions.php 301 Redirect ------------- >   
+        <----------- functions.php 301 Redirect -------------- >   
                
        
               <?php add_action( 'template_redirect', function() {
