@@ -41,3 +41,33 @@
               }); ?>   
     
       
+       <----------- Fuck Yoast Seo ------------->
+       <?php if(is_home()){?>
+              <meta property="og:title" content="All about Growing Plants - Blog about Indoor & Outdoor Gardening" />
+              <meta property="og:url" content="<?= get_site_url() ?>" />
+       <?php } ?>
+       <?php if(is_category()){?>
+              <meta property="og:url" content="<?= get_category_link( get_query_var( 'cat' ) ) ?>" />
+       <?php } ?>
+       <?php if(is_singular()){?>
+              <meta property="og:url" content="<?= get_permalink( get_the_ID() ) ?>" />
+       <?php } ?>
+
+
+       <?php 
+       add_filter( 'wpseo_opengraph_url', 'op_url' );
+       function op_url($filter){
+       if( is_home() || is_category() || is_singular() ){
+                     return false;
+              }
+
+              return $filter;
+       }
+       add_filter( 'wpseo_opengraph_image ', 'op_img' );
+       function op_img($filter){
+       if( is_category()){
+                     return false;
+              }
+
+              return $filter;
+       }?>
