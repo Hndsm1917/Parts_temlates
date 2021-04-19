@@ -30,7 +30,7 @@
        })
         
                
-        <----------- functions.php 301 Redirect -------------- >   
+       <----------- functions.php 301 Redirect -------------- >   
                
        
               <?php add_action( 'template_redirect', function() {
@@ -41,7 +41,7 @@
               }); ?>   
     
       
-       <----------- Fuck Yoast Seo ------------->
+       <----------- Filters for Yoast Seo ------------->
        <?php if(is_home()){?>
               <meta property="og:title" content="All about Growing Plants - Blog about Indoor & Outdoor Gardening" />
               <meta property="og:url" content="<?= get_site_url() ?>" />
@@ -60,14 +60,13 @@
        if( is_home() || is_category() || is_singular() ){
                      return false;
               }
-
               return $filter;
        }
        add_filter( 'wpseo_opengraph_image ', 'op_img' );
        function op_img($filter){
-       if( is_category()){
+              if( is_category()){
                      return false;
               }
-
               return $filter;
-       }?>
+       }
+       ?>
