@@ -89,16 +89,16 @@
        <?php  if(is_category() && is_paged())  { $Term = get_term_by('id', get_query_var('cat'), 'category'); ?>
               <!-- is_category() && is_paged() -->
               <link rel="canonical" href="<?php  echo get_category_link($Term->term_id); ?>"/>
-       <?php   }elseif(is_tag() && is_paged()){  $Term = get_term_by('slug', get_query_var('tag'), 'post_tag') ?>
+       <?php } elseif(is_tag() && is_paged()){  $Term = get_term_by('slug', get_query_var('tag'), 'post_tag') ?>
               <!-- is_tag() && is_paged() -->
               <link rel="canonical" href="<?php  echo get_category_link($Term->term_id); ?>/"/>
-       <?php  }elseif(is_home() ||  is_front_page()){ ?>
+       <?php } elseif(is_home() ||  is_front_page()){ ?>
               <!-- is_home() -->
               <link rel="canonical" href="<?php echo trim("https://$_SERVER[HTTP_HOST]", '/');?>/"/>
-       <?php  }elseif(is_single()  ){ ?>
+       <?php } elseif(is_single()  ){ ?>
               <!-- is_single() -->
               <link rel="canonical" href="<?php echo trim("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", '/');?>/"/>
-       <?php  }elseif(is_archive()  ){ ?>
+       <?php } elseif(is_archive()  ){ ?>
               <!-- is_archive() -->
               <link rel="canonical" href="<?php echo trim("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", '/');?>/"/>
-       <?php }?>
+       <?php } ?>
