@@ -1,0 +1,48 @@
+/* ====================================  сброс стилей браузера        ===================================== */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* ==========================        WCAG 2.1 рекомендуемые параметры текста         ======================= */
+
+
+html, body {
+	font-size: 1em;
+	line-height: 1.5x;
+	letter-spacing: .12rem;
+	word-spacing: .16rem;
+}
+
+p + p {
+	margin-top: 2rem;
+}
+
+/* ============================           Динамические шрифты                ===================================== */
+
+html{
+    font-size: calc(15px + 35*(100vw - 320px)/ 1920);
+}
+
+
+/* ======================================================================================================================== */
+
+html{
+    position: relative;
+}
+html::before{
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+
+/* ======================================================================================================================== */
