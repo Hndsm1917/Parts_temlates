@@ -126,3 +126,36 @@
 
 
        ?>
+
+       <--------------- Schema Breadcrumb
+
+       <script type="application/ld+json"> {
+              "@context" : "http://schema.org",
+              "@type" : "Breadcrumblist",
+              "itemListElement" : [
+              {
+                     "@type" : "ListItem",
+                     "position" : 1,
+                     "item" : {
+                     "@id" : "https://dogsonlyclub.net/",
+                     "name" : "dogsonlyclub.net"
+                     }
+              },
+              {
+                     "@type" : "ListItem",
+                     "position" : 2,
+                     "item" : {
+                     "@id" : "https://dogsonlyclub.net/<?php $cats = get_the_category();for ($i = 0; $i < count($cats); $i++) { echo strtolower($cats[$i]->cat_name);} ?>/",
+                     "name" : "<?php $cats = get_the_category();for ($i = 0; $i < count($cats); $i++) { echo strtolower($cats[$i]->cat_name);} ?>"
+                     }
+              },
+              {
+                     "@type" : "ListItem",
+                     "position" : 3,
+                     "item" : {
+                     "@id" : "https://dogsonlyclub.net/<?php echo  $_SERVER['REQUEST_URI']; ?>",
+                     "name" : "<?php the_title(); ?>"
+                     }
+              }
+       ]}
+       </script>  
