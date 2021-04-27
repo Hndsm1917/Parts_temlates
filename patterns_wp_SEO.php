@@ -23,9 +23,9 @@
          
         
        /your-file.js/
-       document.querySelectorAll("a[href='#']").forEach((element) => {
-              element.addEventListener("click", function(event){
-              event.preventDefault()
+       document.querySelectorAll("a[href='#']").forEach((link) => {
+              link.addEventListener("click", function(event){
+                     event.preventDefault()
               })
        })
         
@@ -47,7 +47,7 @@
               <meta property="og:url" content="<?= get_site_url() ?>" />
        <?php } ?>
        <?php if(is_category()){?>
-              <meta property="og:url" content="<?= get_category_link( get_query_var( 'cat' ) ) ?>" />
+              <meta property="og:url" content="<?= get_category_link( get_query_var('cat') )?>" />
        <?php } ?>
        <?php if(is_singular()){?>
               <meta property="og:url" content="<?= get_permalink( get_the_ID() ) ?>" />
@@ -57,14 +57,14 @@
        <?php 
        add_filter( 'wpseo_opengraph_url', 'op_url' );
        function op_url($filter){
-       if( is_home() || is_category() || is_singular() ){
+              if( is_home() || is_category() || is_singular() ){
                      return false;
               }
               return $filter;
        }
        add_filter( 'wpseo_opengraph_image ', 'op_img' );
        function op_img($filter){
-              if( is_category()){
+              if(is_category()){
                      return false;
               }
               return $filter;
@@ -102,3 +102,27 @@
               <!-- is_archive() -->
               <link rel="canonical" href="<?php echo trim("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", '/');?>/"/>
        <?php } ?>
+
+       <---------------------- Yoast Change title && description on paginated pages ------------ >
+
+       <?php 
+
+
+       add_filter( 'wpseo_title', 'prefix_filter_title' );
+       function prefix_filter_title($title){
+       if( is_paged() ){
+              return $title . " - Page " . get_query_var( 'paged' );
+       }
+       return $title;
+       }
+
+       add_filter( 'wpseo_metadesc', 'prefix_filter_description' );
+       function prefix_filter_description($description){
+              if( is_paged() ){
+                     return $description . " - Page " . get_query_var( 'paged' );
+              }
+              return $description;
+       }
+
+
+       ?>
