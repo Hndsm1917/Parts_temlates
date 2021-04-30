@@ -43,4 +43,27 @@ html::before{
     transform: translate(-50%, -50%);
     position: absolute;
 }
+/*
+=============================================================================================================
 
+
+
+https://base64.guru/converter/encode/image/svg
+
+*/
+
+
+html{
+	position: relative;
+}
+html::before{
+	position: absolute;
+	content: url('data:image/svg+xml; base64, PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxOCAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC44Ij4KPHBhdGggZD0iTTkuMDE3OSAxLjAwMDAxQzUuMzQ5MjMgMS4wMDAwMSAyLjUwNDY2IDQuMTIzODkgMS40NDUxOSA1LjQ2MDA5QzEuMTcxMjggNS44MDU1MyAxLjE3MjcgNi4yOTY3NCAxLjQ1MjE1IDYuNjM3NzFDMi41MjY1NiA3Ljk0ODY0IDUuNDE0NDIgMTEgOS4wMTc5IDExQzEyLjY0MzUgMTEgMTUuNTIyMyA3LjkxMTA4IDE2LjU3MTUgNi42MTM3N0MxNi44Mzg5IDYuMjgzMTEgMTYuODMxOSA1LjgyNDE1IDE2LjU1NzUgNS40OTkyNUMxNS40NTEzIDQuMTg5NDEgMTIuNDA5NCAxLjAwMDAxIDkuMDE3OSAxLjAwMDAxWiIgc3Ryb2tlPSIjRkZGRkZGIi8+CjxjaXJjbGUgY3g9IjkiIGN5PSI2IiByPSIxLjUiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0ZGRkZGRiIvPgo8L2c+Cjwvc3ZnPgo=');
+}
+
+
+
+
+/*
+=============================================================================================================
+*/
