@@ -67,3 +67,12 @@ html::before{
 /*
 =============================================================================================================
 */
+
+
+
+p{
+  text-overflow: ellipsis;
+  display: -webkit-box;       
+  -webkit-line-clamp: 2;  /* обрезает текст по количеству строк */
+  -webkit-box-orient: vertical;
+}
