@@ -33,12 +33,14 @@
        <----------- functions.php 301 Redirect -------------- >   
                
        
-              <?php add_action( 'template_redirect', function() {
-                     if( in_category('portfolio') && !is_category() ){
-                            wp_redirect( 'https://coolkidsblogs.com/portfolio/', 301 );
-                     exit;
-                     }
-              }); ?>   
+        <?php 
+        add_action( 'template_redirect', function() {
+          if( in_category('portfolio') && !is_category() ){
+            wp_redirect( 'https://coolkidsblogs.com/portfolio/', 301 );
+            exit;
+          }
+        }); 
+        ?>   
     
       
        <----------- Filters for Yoast Seo ------------->
@@ -157,5 +159,25 @@
                      "name" : "<?php the_title(); ?>"
                      }
               }
-       ]}
-       </script>  
+      ]}
+      </script>  
+      <----------------------               ------------ >
+
+
+      <?php
+        add_filter( 'remove_pagintaed_link', 'filter_function_name_5681' );
+        function remove_pagintaed_link( $link ){
+            return rtrim( $link, '/' );
+        }
+
+
+
+      //исключение страниц из результатов поиска start
+      function wph_exclude_pages($query) {
+          if ($query->is_search) {
+              $query->set('post_type', 'post');
+          }
+          return $query;
+      }
+      add_filter('pre_get_posts','wph_exclude_pages');
+      //исключение страниц из результатов поиска end
