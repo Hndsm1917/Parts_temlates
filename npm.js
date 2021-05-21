@@ -1,0 +1,2 @@
+unlock power shell
+Set-ExecutionPolicy RemoteSigned
