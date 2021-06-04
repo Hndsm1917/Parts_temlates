@@ -23,11 +23,11 @@
          
         
        /your-file.js/
-       document.querySelectorAll("a[href='#']").forEach((link) => {
-              link.addEventListener("click", function(event){
-                     event.preventDefault()
-              })
-       })
+      document.querySelectorAll("a[href='#']").forEach((link) => {
+            link.addEventListener("click", function(event){
+                    event.preventDefault()
+            })
+      })
         
                
        <----------- functions.php 301 Redirect -------------- >   

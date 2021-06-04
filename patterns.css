@@ -62,7 +62,11 @@ html::before{
 }
 
 
-
+html{
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 500 C 486 500 486 26 972 26 L 972 26 L 972 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 971 26 C 1445.5 26 1445.5 500 1920 500 L 1920 500 L 1920 0 L 971 0 Z" stroke-width="0"></path> </svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 /*
 =============================================================================================================
