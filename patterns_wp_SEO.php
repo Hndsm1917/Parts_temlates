@@ -2,7 +2,7 @@
        ----------- REMOVE PAGE FROM SEARCH INDEXATION -----------
 
        <?php if($_SERVER['REQUEST_URI'] == '/hello-world/'){ ?>
-            <meta name="robots" content="noindex,nofollow" />
+          <meta name="robots" content="noindex,nofollow" />
        <?php } ?>
               
      
@@ -15,11 +15,11 @@
        <----------- Remove active link ------------- >             
        /wp-includes/class-walker-nav-menu.php // line 180:
         
-       <?php if($item->current){
-              $atts['href']="#";
-       } else {
-              $atts['href'] =  $item->url;
-       } ?>
+      <?php if($item->current){
+        $atts['href']="#";
+      } else {
+        $atts['href'] =  $item->url;
+      } ?>
          
         
        /your-file.js/
@@ -44,34 +44,34 @@
     
       
        <----------- Filters for Yoast Seo ------------->
-       <?php if(is_home()){?>
-              <meta property="og:title" content="All about Growing Plants - Blog about Indoor & Outdoor Gardening" />
-              <meta property="og:url" content="<?= get_site_url() ?>" />
-       <?php } ?>
-       <?php if(is_category()){?>
-              <meta property="og:url" content="<?= get_category_link( get_query_var('cat') )?>" />
-       <?php } ?>
-       <?php if(is_singular()){?>
-              <meta property="og:url" content="<?= get_permalink( get_the_ID() ) ?>" />
-       <?php } ?>
+      <?php if(is_home()){?>
+        <meta property="og:title" content="All about Growing Plants - Blog about Indoor & Outdoor Gardening" />
+        <meta property="og:url" content="<?= get_site_url() ?>" />
+      <?php } ?>
+      <?php if(is_category()){?>
+        <meta property="og:url" content="<?= get_category_link( get_query_var('cat') )?>" />
+      <?php } ?>
+      <?php if(is_singular()){?>
+        <meta property="og:url" content="<?= get_permalink( get_the_ID() ) ?>" />
+      <?php } ?>
 
 
-       <?php 
-       add_filter( 'wpseo_opengraph_url', 'op_url' );
-       function op_url($filter){
-              if( is_home() || is_category() || is_singular() ){
-                     return false;
-              }
-              return $filter;
-       }
-       add_filter( 'wpseo_opengraph_image ', 'op_img' );
-       function op_img($filter){
-              if(is_category()){
-                     return false;
-              }
-              return $filter;
-       }
-       ?>
+      <?php 
+      add_filter( 'wpseo_opengraph_url', 'op_url' );
+      function op_url($filter){
+        if( is_home() || is_category() || is_singular() ){
+                return false;
+        }
+        return $filter;
+      }
+      add_filter( 'wpseo_opengraph_image ', 'op_img' );
+      function op_img($filter){
+        if(is_category()){
+          return false;
+        }
+        return $filter;
+      }
+      ?>
 
 
        <---------------------- Yoast Canonical ------------ >
@@ -113,7 +113,7 @@
        add_filter( 'wpseo_title', 'prefix_filter_title' );
        function prefix_filter_title($title){
        if( is_paged() ){
-              return $title . " - Page " . get_query_var( 'paged' );
+          return $title . " - Page " . get_query_var( 'paged' );
        }
        return $title;
        }
@@ -132,33 +132,33 @@
        <--------------- Schema Breadcrumb
 
        <script type="application/ld+json"> {
-              "@context" : "http://schema.org",
-              "@type" : "Breadcrumblist",
-              "itemListElement" : [
-              {
-                     "@type" : "ListItem",
-                     "position" : 1,
-                     "item" : {
-                     "@id" : "https://dogsonlyclub.net/",
-                     "name" : "dogsonlyclub.net"
-                     }
-              },
-              {
-                     "@type" : "ListItem",
-                     "position" : 2,
-                     "item" : {
-                     "@id" : "https://dogsonlyclub.net/<?php $cats = get_the_category();for ($i = 0; $i < count($cats); $i++) { echo strtolower($cats[$i]->cat_name);} ?>/",
-                     "name" : "<?php $cats = get_the_category();for ($i = 0; $i < count($cats); $i++) { echo strtolower($cats[$i]->cat_name);} ?>"
-                     }
-              },
-              {
-                     "@type" : "ListItem",
-                     "position" : 3,
-                     "item" : {
-                     "@id" : "https://dogsonlyclub.net/<?php echo  $_SERVER['REQUEST_URI']; ?>",
-                     "name" : "<?php the_title(); ?>"
-                     }
-              }
+          "@context" : "http://schema.org",
+          "@type" : "Breadcrumblist",
+          "itemListElement" : [
+          {
+                  "@type" : "ListItem",
+                  "position" : 1,
+                  "item" : {
+                  "@id" : "https://dogsonlyclub.net/",
+                  "name" : "dogsonlyclub.net"
+                  }
+          },
+          {
+                  "@type" : "ListItem",
+                  "position" : 2,
+                  "item" : {
+                  "@id" : "https://dogsonlyclub.net/<?php $cats = get_the_category();for ($i = 0; $i < count($cats); $i++) { echo strtolower($cats[$i]->cat_name);} ?>/",
+                  "name" : "<?php $cats = get_the_category();for ($i = 0; $i < count($cats); $i++) { echo strtolower($cats[$i]->cat_name);} ?>"
+                  }
+          },
+          {
+                  "@type" : "ListItem",
+                  "position" : 3,
+                  "item" : {
+                  "@id" : "https://dogsonlyclub.net/<?php echo  $_SERVER['REQUEST_URI']; ?>",
+                  "name" : "<?php the_title(); ?>"
+                  }
+          }
       ]}
       </script>  
       <----------------------               ------------ >
@@ -181,3 +181,15 @@
       }
       add_filter('pre_get_posts','wph_exclude_pages');
       //исключение страниц из результатов поиска end
+
+      <--------------------- Slash 301 Redirect ------------------------------>
+
+      add_action( 'template_redirect', function() {
+        if( is_category() ){
+          $str = $_SERVER['REQUEST_URI']; 
+          if(substr($str, -1) != '/'){
+            wp_redirect( 'https://dogsonlyclub.net' . $str . '/', 301 );
+            exit;
+          }
+        }
+      }); 

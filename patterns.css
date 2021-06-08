@@ -16,7 +16,7 @@ time, mark, audio, video {
 
 html, body {
 	font-size: 1em;
-	line-height: 1.5x;
+	line-height: 1.5px;
 	letter-spacing: .12rem;
 	word-spacing: .16rem;
 }
