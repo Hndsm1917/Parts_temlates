@@ -45,3 +45,7 @@ if($browser == "Firefox"){ ?>
     <?php
         echo round(strlen( wp_strip_all_tags(get_the_content())) / 1500);
     ?>
+
+  <----------------------- SearcForm.php  post_type => post  ---------------------->
+
+    <input type="submit" id="searchsubmit" value="post" name = "post_type" id = "post_type" />
