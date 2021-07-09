@@ -15,11 +15,13 @@
        <----------- Remove active link ------------- >             
        /wp-includes/class-walker-nav-menu.php // line 180:
         
-      <?php if($item->current){
+      <?php 
+      if($item->current){
         $atts['href']="#";
       } else {
         $atts['href'] =  $item->url;
-      } ?>
+      } 
+      ?>
          
         
        /your-file.js/
